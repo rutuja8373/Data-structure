@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char s1[40][40],name[40];
+	int i,n,top,bottom,mid,flag=0;
+	printf("enter limit:");
+	scanf("%d",&n);
+	printf("\n enter n name in sorted order:");
+	for(i=1;i<=n;i++)
+	{
+		scanf("%s",&s1[i]);
+	}
+	printf("\nenter no to search:");
+	scanf("%s",&name);
+		top=0;
+		bottom=n-1;
+	while(top<=bottom)
+	{
+		mid=(top+bottom)/2;
+		if(strcmp(s1[mid],name)==0)
+	 	{
+	 		flag=1;
+	 		break;		
+	    }
+		if(strcmp(s1[mid],name)<0)
+			top=mid+1;
+		else
+			bottom=mid-1;
+	}
+	if(flag==1)
+		printf("\n no is found position=%d",mid);
+	else
+	    printf("\n no is not found...");
+}
