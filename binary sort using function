@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+	int a[100],i,n,num,p;
+	int binary_search(int a[],int n,int num);
+	printf("enter limit:");
+	scanf("%d",&n);
+	printf("\nenter n no in sorted order:");
+	for(i=1;i<=n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("\nenter no to search:");
+	scanf("%d",&num);
+	p=binary_search(a,n,num);
+	if(p==-1)
+	 	printf("\nNo is not found...");
+	else
+		printf("\nNo is found position=%d",p);		
+}
+int binary_search(int a[],int n,int num)
+{
+	int top,mid,bottom;
+	top=0;
+	bottom=n-1;
+	while(top<=bottom)
+	{
+		mid=(top+bottom)/2;
+		if(a[mid]==num)
+		{
+			return mid;	
+		}
+		if(a[mid]<num)
+			top=mid+1;
+		else
+			bottom=mid-1;
+	}
+	return -1;
+}
