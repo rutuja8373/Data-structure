@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int i,n,p;
+	char s1[40][40],name[40];
+	int linear_search(char s1[40][40],int n,char name[40]);
+	printf("Enter limit:");
+	scanf("%d",&n);
+	printf("\n Enater n names:");
+	for(i=1;i<=n;i++)
+	{
+		scanf("%s",&s1[i]);
+	}
+	printf("\nEnter name to search:");
+	scanf("%s",&name);
+	p=linear_search(s1,n,name);
+	if(p==-1)
+	 	printf("\nNo is not found...");
+	else
+		printf("\nNo is found position=%d",p);
+}
+int linear_search(char s1[40][40],int n,char name[40])
+{
+	int i;
+	for(i=1;i<=n;i++)
+	{
+		if(strcmp(s1[i],name)==0)
+		{
+			return i;	
+		}	
+	}
+	return -1;
+}
