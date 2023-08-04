@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int a[100],i,n,num,p;
+	int linear_search(int a[],int n,int num);
+	printf("Enter limit:");
+	scanf("%d",&n);
+	printf("\n Enater n no:");
+	for(i=1;i<=n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("\nEnter no to search:");
+	scanf("%d",&num);
+	p=linear_search(a,n,num);
+	if(p==-1)
+	 	printf("\nNo is not found...");
+	else
+		printf("\nNo is found position=%d",p);
+}
+int linear_search(int a[],int n,int num)
+{
+	int i;
+	for(i=1;i<=n;i++)
+	{
+		if(a[i]==num)
+		{
+			return i;	
+		}	
+	}
+	return -1;
+}
