@@ -1,0 +1,55 @@
+#include<stdio.h>
+int n,a[20];
+void merge(int start,int mid,int end)
+{
+	int i,j,k,b[40];
+	i=start;
+	j=mid+1;
+	k=start;
+	while(i<=mid&&j<=end)
+	{
+		if(a[i]<a[j])
+			b[k++]=a[i++];
+		else
+			b[k++]=a[j++];
+	}
+	while(i<=mid)
+	{
+			b[k++]=a[i++];
+	}
+	while(j<=end)
+	{
+			b[k++]=a[j++];
+	}
+	for(i=start;i<=end;i++)
+		a[i]=b[i];
+}
+void divide(int start,int end)
+{
+	int mid;
+	if(start!=end)
+	{
+		mid=(start+end)/2;
+		divide(start,mid);
+		divide(mid+1,end);
+		merge(start,mid,end);
+	}
+}
+int main()
+{
+	int i;
+	printf("\nenter limit:");
+	scanf("%d",&n);
+	printf("\nEnter array element:");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	divide(0,n-1);
+	
+	printf("\nsorted element are:");
+	for(i=0;i<n;i++)
+	{
+		printf("%d\t",a[i]);
+	}
+}
